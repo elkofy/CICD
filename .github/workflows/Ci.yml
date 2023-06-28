@@ -1,0 +1,22 @@
+name: Continuous Integration Workflow
+
+on:
+  push:
+    branches:
+      - main
+    
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: npm i
+      
+    - name: Install dependencies
+      run: npm run dev      
