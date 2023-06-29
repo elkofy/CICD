@@ -24,12 +24,6 @@ jobs:
     - name: run code coverage
       run: npx jest --coverage --passWithNoTests
 
-    - name: Step 1 - Create a temporary artifact downloads folder
-      run: mkdir downloads
-      
-    - name: step 2 - Add artifacts to publish to the temp folder
-      run: cp -R node_modules downloads && cp index.js downloads/index.js  && cp package.json downloads/package.json
-   
     - name: step 2 - Add artifacts to publish to the temp folder
       run: zip -r 
    
