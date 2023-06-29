@@ -15,8 +15,6 @@ jobs:
 
     steps:
     - uses: actions/download-artifact@v3
-      with:
-        name: assets-for-download 
 
     - name: Display structure of downloaded files
       run: ls -R
