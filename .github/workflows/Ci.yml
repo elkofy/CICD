@@ -31,7 +31,7 @@ jobs:
       run: cp -R node_modules downloads && cp index.js downloads/index.js  && cp package.json downloads/package.json
    
     - name: step 2 - Add artifacts to publish to the temp folder
-      run: zip -r download.zip
+      run: zip -r 
    
     - name: Step 3 - Use the Upload Artifact GitHub Action
       uses: actions/upload-artifact@v2
