@@ -21,6 +21,9 @@ jobs:
     - name: run linter
       run: npm run lint
 
+    - name: run code coverage
+      run: npx jest --coverage
+
     - name: Step 1 - Create a temporary artifact downloads folder
       run: mkdir downloads
       
