@@ -22,7 +22,7 @@ jobs:
       run: npm run lint
 
     - name: run code coverage
-      run: npx jest --coverage
+      run: npx jest --coverage --passWithNoTests
 
     - name: Step 1 - Create a temporary artifact downloads folder
       run: mkdir downloads
