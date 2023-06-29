@@ -1,0 +1,28 @@
+name: Continuous Integration Workflow
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@v3
+      with:
+        name: my-artifact
+
+    - name: Display structure of downloaded files
+      run: ls -R
+    
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: helloworld
+        publish-profile: ${{ secrets.azureWebAppPublishProfile }}
