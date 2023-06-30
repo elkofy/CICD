@@ -47,7 +47,7 @@ jobs:
     - uses: actions/download-artifact@v3
     
     - name: Debug
-      run: ls -al ${{ runner.temp }}
+      run: ls -al ${{ runner }}
       
     - name: unzip zip file
       run: unzip build.zip -d .
