@@ -45,8 +45,9 @@ jobs:
 
     steps:
     - uses: actions/download-artifact@v3
-    - name: Display structure of downloaded files
-      run: ls -R
+    
+    - name: unzip zip file
+      run: unzip artifact.zip -d .
     
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v2
