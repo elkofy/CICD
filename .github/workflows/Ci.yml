@@ -25,13 +25,13 @@ jobs:
       run: npx jest --coverage --passWithNoTests
 
     - name: step 2 - Add artifacts to publish to the temp folder
-      run: zip -r artifact.zip .
+      run: zip -r build.zip .
         
     - name: Step 3 - Use the Upload Artifact GitHub Action
       uses: actions/upload-artifact@v2
       with: 
         name: build
-        path: artifact.zip   
+        path: build.zip   
         
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
@@ -46,10 +46,10 @@ jobs:
     steps:
     - uses: actions/download-artifact@v3
       with:
-        name: artifact
+        name: build
       
     - name: unzip zip file
-      run: unzip artifact.zip 
+      run: unzip build.zip 
     
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v2
